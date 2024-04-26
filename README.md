@@ -4,7 +4,6 @@ Implementing data structures in Golang
 ## Data Structures
 
 - Lists
-    - [ ] Array
     - [ ] Singly Linked List
     - [ ] Doubly Linked List
     - [ ] Circular Linked List

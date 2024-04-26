@@ -8,25 +8,25 @@ type List[T comparable] interface {
 	GetEnd() T
 
 	// Retrieve the element at the given index
-	GetIndex(int) T
+	Get(int) (T, bool)
 
 	// Add an element to the beginning of the list
-	AddBegin(T)
+	Prepend(T)
 
 	// Add an element to the end of the list
-	AddEnd(T)
+	Append(T)
 
 	// Add an element at the given index
-	AddIndex(int, T)
+	Add(int, T) bool
 
 	// Delete the first element of the list
-	DeleteBegin()
+	DeleteBegin() bool
 
 	// Delete the last element of the list
-	DeleteEnd()
+	DeleteEnd() bool
 
 	// Delete the element at the given index
-	DeleteIndex(int)
+	Delete(int) bool
 
 	// Display the list
 	Display()
