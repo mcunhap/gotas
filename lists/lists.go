@@ -2,10 +2,10 @@ package lists
 
 type List[T comparable] interface {
 	// Retrieve the first element of the list
-	GetBegin() T
+	GetBegin() (T, bool)
 
 	// Retrieve the last element of the list
-	GetEnd() T
+	GetEnd() (T, bool)
 
 	// Retrieve the element at the given index
 	Get(int) (T, bool)
@@ -28,6 +28,9 @@ type List[T comparable] interface {
 	// Delete the element at the given index
 	Delete(int) bool
 
-	// Display the list
-	Display()
+	// Retrieve elements from the list
+	Values() []T
+
+	// Check if the list is empty
+	Empty() bool
 }
