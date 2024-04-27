@@ -19,34 +19,6 @@ func TestListNew(t *testing.T) {
 	}
 }
 
-func TestGetBegin(t *testing.T) {
-	l1 := New[int]()
-
-	if _, ok := l1.GetBegin(); ok {
-		t.Errorf("Expected first element not be retrieved, but got %t", ok)
-	}
-
-	l2 := New[int](1, 2, 3)
-
-	if v, _ := l2.GetBegin(); v != 1 {
-		t.Errorf("Expected first element to be 1, got %d", v)
-	}
-}
-
-func TestGetEnd(t *testing.T) {
-	l1 := New[int]()
-
-	if _, ok := l1.GetEnd(); ok {
-		t.Errorf("Expected last element not be retrieved, but got %t", ok)
-	}
-
-	l2 := New[int](1, 2, 3)
-
-	if v, _ := l2.GetEnd(); v != 3 {
-		t.Errorf("Expected last element to be 3, got %d", v)
-	}
-}
-
 func TestGet(t *testing.T) {
 	l1 := New[int]()
 
@@ -148,62 +120,6 @@ func TestAdd(t *testing.T) {
 	}
 }
 
-func TestDeleteBegin(t *testing.T) {
-	l := New[int]()
-
-	ok := l.DeleteBegin()
-
-	if ok {
-		t.Errorf("Expected element not be deleted, but got %t", ok)
-	}
-
-	l.Append(1)
-	l.Append(2)
-	l.Append(3)
-
-	l.DeleteBegin()
-
-	if l.size != 2 {
-		t.Errorf("Expected size to be 2, got %d", l.size)
-	}
-
-	if v, _ := l.Get(0); v != 2 {
-		t.Errorf("Expected element to be 2, got %d", v)
-	}
-
-	if v, _ := l.Get(1); v != 3 {
-		t.Errorf("Expected element to be 3, got %d", v)
-	}
-}
-
-func TestDeleteEnd(t *testing.T) {
-	l := New[int]()
-
-	ok := l.DeleteEnd()
-
-	if ok {
-		t.Errorf("Expected element not be deleted, but got %t", ok)
-	}
-
-	l.Append(1)
-	l.Append(2)
-	l.Append(3)
-
-	l.DeleteEnd()
-
-	if l.size != 2 {
-		t.Errorf("Expected size to be 2, got %d", l.size)
-	}
-
-	if v, _ := l.Get(0); v != 1 {
-		t.Errorf("Expected element to be 1, got %d", v)
-	}
-
-	if v, _ := l.Get(1); v != 2 {
-		t.Errorf("Expected element to be 2, got %d", v)
-	}
-}
-
 func TestDelete(t *testing.T) {
 	l := New[int]()
 
@@ -224,19 +140,16 @@ func TestDelete(t *testing.T) {
 	l.Append(3)
 	l.Append(4)
 
+	l.Delete(0)
 	l.Delete(2)
 	l.Delete(1)
 
-	if l.size != 2 {
-		t.Errorf("Expected size to be 2, got %d", l.size)
+	if l.size != 1 {
+		t.Errorf("Expected size to be 1, got %d", l.size)
 	}
 
-	if v, _ := l.Get(0); v != 1 {
-		t.Errorf("Expected element to be 1, got %d", v)
-	}
-
-	if v, _ := l.Get(1); v != 4 {
-		t.Errorf("Expected element to be 4, got %d", v)
+	if v, _ := l.Get(0); v != 2 {
+		t.Errorf("Expected element to be 2, got %d", v)
 	}
 }
 

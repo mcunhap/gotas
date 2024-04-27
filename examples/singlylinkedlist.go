@@ -27,11 +27,11 @@ func SinglyLinkedListExample() {
 	fmt.Println(list.Values())
 
 	fmt.Println("\nDeleting first element...")
-	list.DeleteBegin()
+	list.Delete(0)
 	fmt.Println(list.Values())
 
 	fmt.Println("\nDeleting last element...")
-	list.DeleteEnd()
+	list.Delete(2)
 	fmt.Println(list.Values())
 
 	fmt.Println("\nChecking if the list is empty...")

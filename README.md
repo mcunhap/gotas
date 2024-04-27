@@ -63,14 +63,10 @@ In the representation above:
 - The arrow pointing to nil indicates the end of the list.
 
 The basic operations implemented here are:
-- `GetBegin()`: returns the value of the first node.
-- `GetEnd()`: returns the value of the last node.
 - `Get(index int)`: returns the value of the node at position `index`.
 - `Prepend(value T)`: adds a new node at the beginning of the list.
 - `Append(value T)`: adds a new node at the end of the list.
 - `Add(index int, value T)`: adds a new node at position `index`.
-- `DeleteBegin()`: removes the first node.
-- `DeleteEnd()`: removes the last node.
 - `Delete(index int)`: removes the node at position `index`.
 - `Values() []T`: returns a slice with the values of the nodes in the list.
 - `Empty() bool`: returns `true` if the list is empty, `false` otherwise.

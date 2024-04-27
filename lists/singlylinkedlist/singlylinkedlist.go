@@ -23,24 +23,6 @@ func New[T comparable](values ...T) *List[T] {
 	return &l
 }
 
-func (l *List[T]) GetBegin() (T, bool) {
-	if l.size == 0 {
-		var t T
-		return t, false
-	}
-
-	return l.head.data, true
-}
-
-func (l *List[T]) GetEnd() (T, bool) {
-	if l.size == 0 {
-		var t T
-		return t, false
-	}
-
-	return l.tail.data, true
-}
-
 func (l *List[T]) Get(index int) (T, bool) {
 	if index < 0 || index >= l.size {
 		var t T
@@ -114,7 +96,32 @@ func (l *List[T]) Add(index int, data T) bool {
 	return true
 }
 
-func (l *List[T]) DeleteBegin() bool {
+func (l *List[T]) Delete(index int) bool {
+	if index < 0 || index >= l.size {
+		return false
+	}
+
+	if index == 0 {
+		return l.deleteHead()
+	}
+
+	if index == l.size-1 {
+		return l.deleteTail()
+	}
+
+	current := l.head
+
+	for i := 0; i < index-1; i++ {
+		current = current.next
+	}
+
+	current.next = current.next.next
+	l.size--
+
+	return true
+}
+
+func (l *List[T]) deleteHead() bool {
 	if l.size == 0 {
 		return false
 	}
@@ -125,7 +132,7 @@ func (l *List[T]) DeleteBegin() bool {
 	return true
 }
 
-func (l *List[T]) DeleteEnd() bool {
+func (l *List[T]) deleteTail() bool {
 	if l.size == 0 {
 		return false
 	}
@@ -138,31 +145,6 @@ func (l *List[T]) DeleteEnd() bool {
 
 	l.tail = current
 	l.tail.next = nil
-	l.size--
-
-	return true
-}
-
-func (l *List[T]) Delete(index int) bool {
-	if index < 0 || index >= l.size {
-		return false
-	}
-
-	if index == 0 {
-		return l.DeleteBegin()
-	}
-
-	if index == l.size-1 {
-		return l.DeleteEnd()
-	}
-
-	current := l.head
-
-	for i := 0; i < index-1; i++ {
-		current = current.next
-	}
-
-	current.next = current.next.next
 	l.size--
 
 	return true
