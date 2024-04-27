@@ -1,5 +1,6 @@
 package lists
 
+// List is an interface that defines the methods that a list must implement
 type List[T comparable] interface {
 	// Retrieve the first element of the list
 	GetBegin() (T, bool)
