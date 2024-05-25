@@ -122,10 +122,6 @@ func (l *List[T]) Delete(index int) bool {
 }
 
 func (l *List[T]) deleteHead() bool {
-	if l.size == 0 {
-		return false
-	}
-
 	l.head = l.head.next
 	l.size--
 
@@ -133,10 +129,6 @@ func (l *List[T]) deleteHead() bool {
 }
 
 func (l *List[T]) deleteTail() bool {
-	if l.size == 0 {
-		return false
-	}
-
 	current := l.head
 
 	for i := 0; i < l.size-1; i++ {
