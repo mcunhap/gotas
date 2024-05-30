@@ -34,7 +34,7 @@ Linked List is as data structure used for storing collections of data, that has 
 - Can be made just as long as required (until memory exhaustion).
 - Does not waste memory space (but takes up a bit more space for the pointers).
 
-The basic operations implemented in all kinds of linked lists implemented here are:
+The basic operations in all kinds of linked lists implemented here are:
 
 - `Get(index int)`: returns the value of the node at position `index`.
 - `Prepend(value T)`: adds a new node at the beginning of the list.
