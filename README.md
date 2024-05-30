@@ -79,12 +79,6 @@ type node[T any] struct {
     next *node[T]
 }
 ```
-In the representation above:
-- Each box represents a node.
-- The number inside each box represents the value stored in that node.
-- The arrow (->) represents the pointer from one node to the next.
-- The arrow pointing to nil indicates the end of the list.
-
 
 ### Doubly Linked List
 
@@ -96,6 +90,8 @@ It is a linear data structure where each element is a node containing a value, a
     +---+     +---+     +---+     +---+
     | A | <-> | B | <-> | C | <-> | D | -> nil
     +---+     +---+     +---+     +---+
+
+The structure of the list is defined as follows:
 
 ```go
 type List[T comparable] struct {
