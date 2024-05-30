@@ -6,7 +6,7 @@ Implementing and learning data structures. All code is written in Go.
 - Linked List
     - [x] [Singly Linked List](#singly-linked-list)
     - [x] [Doubly Linked List](#doubly-linked-list)
-    - [ ] Circular Linked List
+    - [x] [Circular Linked List](#circular-linked-list)
 - Stack
     - [ ] Array
     - [ ] Linked List
@@ -46,6 +46,18 @@ The basic operations in all kinds of linked lists implemented here are:
 
 The main advantage of linked lists, is that can be expanded in constant time, which is not the case with arrays, since we need to copy all elements to a new array. Thus, we can start with an empty list and add elements as needed. In the other hand, the main disadvantage is that we need to traverse the list to find the `n-th` element, which is not the case with arrays, since we can access the element in constant time. Furthermore, arrays are cache friendly, since all elements are stored in contiguous memory locations, which is not the case with linked lists.
 
+All kinds of linked lists implemented here have the following structure:
+
+```go
+type List[T comparable] struct {
+    head *node[T]
+    tail *node[T]
+    size int
+}
+```
+
+Where `node` is the structure of the node, that can be different in each case, so it is defined in each section.
+
 ### Singly Linked List
 
 Also known simply as "linked list," it is a linear data structure where each element is a node containing a value and a pointer to the next node. The last node points to `nil`. It is noteworthy that the value contained in the node can be of any type and is defined at the time of list creation.
@@ -58,18 +70,6 @@ The beginning of the list is represented by the `Head` pointer, which points to 
     +---+    +---+    +---+    +---+
     | A | -> | B | -> | C | -> | D | -> nil
     +---+    +---+    +---+    +---+
-
-The structure of the list is defined as follows:
-
-```go
-type List[T comparable] struct {
-    head *node[T]
-    tail *node[T]
-    size int
-}
-```
-
-Where `node` is the structure of the node.
 
 The structure of the node is defined as follows:
 
@@ -91,22 +91,37 @@ It is a linear data structure where each element is a node containing a value, a
     | A | <-> | B | <-> | C | <-> | D | -> nil
     +---+     +---+     +---+     +---+
 
-The structure of the list is defined as follows:
-
-```go
-type List[T comparable] struct {
-    head *node[T]
-    tail *node[T]
-    size int
-}
-```
-Where `node` is the structure of the node.
+The structure of the node is defined as follows:
 
 ```go
 type node[T any] struct {
     data T
     next *node[T]
     prev *node[T]
+}
+```
+
+### Circular Linked List
+
+Circular Linked List is similar to a singly linked list, but the last node points to the first node.
+
+The beginning of the list is represented by the `Head` pointer, which points to the first node. The end of the list is represented by the `Tail` pointer, which points to the last node. The list below represents a circular linked list with four nodes.
+
+    Head                        Tail
+      |                          |
+      v                          v
+    +---+    +---+    +---+    +---+
+    | A | -> | B | -> | C | -> | D | ---
+    +---+    +---+    +---+    +---+   |
+      ^                                |
+      |--------------------------------+
+
+The structure of the node is defined as follows:
+
+```go
+type node[T any] struct {
+    data T
+    next *node[T]
 }
 ```
 
