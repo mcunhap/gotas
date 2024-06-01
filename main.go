@@ -17,4 +17,8 @@ func main() {
 	fmt.Printf("\n==== Circular Linked List ====\n")
 	examples.CircularLinkedListExample()
 	fmt.Printf("\n==============================\n")
+
+	fmt.Printf("\n==== Array Stack ====\n")
+	examples.ArrayStackExample()
+	fmt.Printf("\n=====================\n")
 }
