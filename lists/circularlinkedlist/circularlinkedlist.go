@@ -1,6 +1,6 @@
 package circularlinkedlist
 
-type List[T comparable] struct {
+type List[T any] struct {
 	head *node[T]
 	tail *node[T]
 	size int
@@ -11,7 +11,7 @@ type node[T any] struct {
 	next *node[T]
 }
 
-func New[T comparable](values ...T) *List[T] {
+func New[T any](values ...T) *List[T] {
 	l := List[T]{}
 
 	if len(values) > 0 {

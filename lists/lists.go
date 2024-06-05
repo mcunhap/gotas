@@ -1,7 +1,7 @@
 package lists
 
 // List is an interface that defines the methods that a list must implement
-type List[T comparable] interface {
+type List[T any] interface {
 	// Retrieve the element at the given index
 	Get(int) (T, bool)
 
