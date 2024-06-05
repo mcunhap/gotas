@@ -181,3 +181,18 @@ func TestEmpty(t *testing.T) {
 		t.Errorf("Expected non empty list")
 	}
 }
+
+func TestSize(t *testing.T) {
+	l := New[int]()
+
+	if l.size != 0 {
+		t.Errorf("Expected size to be 0, got %d", l.size)
+	}
+
+	l.Append(1)
+	l.Append(2)
+
+	if l.size != 2 {
+		t.Errorf("Expected size to be 2, got %d", l.size)
+	}
+}

@@ -161,3 +161,7 @@ func (l *List[T]) Values() []T {
 func (l *List[T]) Empty() bool {
 	return l.size == 0
 }
+
+func (l *List[T]) Size() int {
+	return l.size
+}

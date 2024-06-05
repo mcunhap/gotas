@@ -160,7 +160,7 @@ func TestValues(t *testing.T) {
 	}
 }
 
-func TestEmptyValues(t *testing.T) {
+func TestEmpty(t *testing.T) {
 	l := New[int]()
 
 	if !l.Empty() {
@@ -171,5 +171,21 @@ func TestEmptyValues(t *testing.T) {
 
 	if l.Empty() {
 		t.Errorf("Expected non empty list")
+	}
+}
+
+func TestSize(t *testing.T) {
+	l := New[int]()
+
+	if l.Size() != 0 {
+		t.Errorf("Expected size to be 0, got %d", l.Size())
+	}
+
+	l.Append(1)
+	l.Append(2)
+	l.Append(3)
+
+	if l.Size() != 3 {
+		t.Errorf("Expected size to be 3, got %d", l.Size())
 	}
 }

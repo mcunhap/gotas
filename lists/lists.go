@@ -22,4 +22,7 @@ type List[T any] interface {
 
 	// Check if the list is empty
 	Empty() bool
+
+	// Check the size of the list
+	Size() int
 }
