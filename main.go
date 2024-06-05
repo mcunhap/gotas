@@ -21,4 +21,8 @@ func main() {
 	fmt.Printf("\n==== Array Stack ====\n")
 	examples.ArrayStackExample()
 	fmt.Printf("\n=====================\n")
+
+	fmt.Printf("\n==== Linked List Stack ====\n")
+	examples.LinkedListStackExample()
+	fmt.Printf("\n=====================\n")
 }
