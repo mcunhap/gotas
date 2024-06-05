@@ -8,7 +8,7 @@ Implementing and learning data structures. All code is written in Go.
     - [x] [Doubly Linked List](#doubly-linked-list)
     - [x] [Circular Linked List](#circular-linked-list)
 - Stack
-    - [ ] Array
+    - [x] [Array](#array-stack)
     - [ ] Linked List
 - Queue
     - [ ] Array
@@ -122,6 +122,39 @@ The structure of the node is defined as follows:
 type node[T any] struct {
     data T
     next *node[T]
+}
+```
+
+## Stack
+
+A stack is a simple data structure used for store elements in a last-in-first-out (LIFO) order. The LIFO order means that the last element added to the stack is the first one to be removed, similar to a pile of plates. When we add a new plate to the pile, we place it on top of the others. When we remove a plate from the pile, we always take the one on top. The stack works the same way. There are special names for the operations on a stack. When we add an element to the stack, we say we `push` it. When we remove an element from the stack, we say we `pop` it. So, basically, we have these two operations and some other auxiliary operations in all kinds of stacks implemented here:
+
+- `Push(value T)`: adds a new element to the top of the stack.
+- `Pop() T`: removes the element from the top of the stack and returns it.
+- `Peek() T`: returns the element from the top of the stack without removing it.
+- `Size() int`: returns the number of elements in the stack.
+- `Empty() bool`: returns `true` if the stack is empty, `false` otherwise.
+- `Full() bool`: returns `true` if the stack is full, `false` otherwise.
+- `Values() []T`: returns a slice with the values of the elements in the stack.
+
+### Array Stack
+
+The array stack is a stack implemented using an array. The array has a fixed size, which is defined at the time of stack creation, we add elements from left to right and we use a variable to keep track of the top of the stack. The stack below represents an array stack with size four and two elements.
+
+         Top
+          |
+          v
+    +---+---+---+---+
+    | A | B |   |   |
+    +---+---+---+---+
+
+The structure of the stack is defined as follows:
+
+```go
+type ArrayStack[T any] struct {
+    data     []T
+	top      int
+    capacity int
 }
 ```
 
