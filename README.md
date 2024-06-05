@@ -153,8 +153,27 @@ The structure of the stack is defined as follows:
 ```go
 type ArrayStack[T any] struct {
     data     []T
-	top      int
+    top      int
     capacity int
+}
+```
+
+### Linked List Stack
+
+The linked list stack is a stack implemented using a singly linked list. The stack has a pointer to the top of the stack, which points to the first node. We add elements in the end of the list and we remove elements from the end of the list. The stack below represents a linked list stack with two elements.
+
+              Top
+               |
+               v
+    +---+    +---+
+    | A | -> | B | -> nil
+    +---+    +---+
+
+The structure of the stack is defined as follows:
+
+```go
+type LinkedListStack[T any] struct {
+    data *singlylinkedlist.List[T]
 }
 ```
 
