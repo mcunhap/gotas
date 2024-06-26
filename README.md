@@ -9,7 +9,7 @@ Implementing and learning data structures. All code is written in Go.
     - [x] [Circular Linked List](#circular-linked-list)
 - Stack
     - [x] [Array](#array-stack)
-    - [ ] Linked List
+    - [x] [Linked List](#linked-list-stack)
 - Queue
     - [ ] Array
     - [ ] Linked List
