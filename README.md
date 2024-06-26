@@ -12,7 +12,7 @@ Implementing and learning data structures. All code is written in Go.
     - [x] [Linked List](#linked-list-stack)
 - Queue
     - [x] [Array](#array-queue)
-    - [ ] Linked List
+    - [x] [Linked List](#linked-list-queue)
 - Tree
     - [ ] Binary Tree
     - [ ] Binary Search Tree
@@ -217,6 +217,25 @@ type ArrayQueue[T any] struct {
     front    int
     rear     int
     capacity int
+}
+```
+
+### Linked List Queue
+
+The linked list queue is a queue implemented using a singly linked list. The queue has a pointer to the front of the queue, which points to the first node, and a pointer to the rear of the queue, which points to the last node. We add elements in the end of the list and we remove elements from the beginning of the list. The queue below represents a linked list queue with four elements.
+
+    Front                                        Rear
+      |                                           |
+      v                                           v
+    +---+    +---+    +---+    +---+    +---+    +---+
+    | A | -> | B | -> | C | -> | D | -> | E | -> | F | -> nil
+    +---+    +---+    +---+    +---+    +---+    +---+
+
+The structure of the queue is defined as follows:
+
+```go
+type LinkedListQueue[T any] struct {
+    data *singlylinkedlist.List[T]
 }
 ```
 
