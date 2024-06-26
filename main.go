@@ -29,4 +29,8 @@ func main() {
 	fmt.Printf("\n==== Array Queue ====\n")
 	examples.ArrayQueueExample()
 	fmt.Printf("\n=====================\n")
+
+	fmt.Printf("\n==== Linked List Queue ====\n")
+	examples.LinkedListQueueExample()
+	fmt.Printf("\n=====================\n")
 }
