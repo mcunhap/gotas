@@ -11,7 +11,7 @@ Implementing and learning data structures. All code is written in Go.
     - [x] [Array](#array-stack)
     - [x] [Linked List](#linked-list-stack)
 - Queue
-    - [ ] Array
+    - [x] [Array](#array-queue)
     - [ ] Linked List
 - Tree
     - [ ] Binary Tree
@@ -174,6 +174,49 @@ The structure of the stack is defined as follows:
 ```go
 type LinkedListStack[T any] struct {
     data *singlylinkedlist.List[T]
+}
+```
+
+## Queue
+
+A queue is a simple data structure used for store elements in a first-in-first-out (FIFO) order. The FIFO order means that the first element added to the queue is the first one to be removed, similar to a line of people waiting to pay for their groceries. When we add a new person to the line, we place them at the end. When we remove a person from the line, we always take the one at the front. The queue works the same way. There are special names for the operations on a queue. When we add an element to the queue, we say we `enqueue` it. When we remove an element from the queue, we say we `dequeue` it. So, basically, we have these two operations and some other auxiliary operations in all kinds of queues implemented here:
+
+- `Enqueue(value T)`: adds a new element at the end of the queue.
+- `Dequeue() T`: removes the element from the front of the queue and returns it.
+- `Front() T`: returns the element from the front of the queue without removing it.
+- `Size() int`: returns the number of elements in the queue.
+- `Empty() bool`: returns `true` if the queue is empty, `false` otherwise.
+- `Full() bool`: returns `true` if the queue is full, `false` otherwise.
+- `Values() []T`: returns a slice with the values of the elements in the queue.
+
+### Array Queue
+
+The array queue is a queue implemented using an array, but not a simple array. Since we need to add elements at the end of the queue and remove elements from the front of the queue, sometime we will get into the situation shown below.
+
+    +---+---+---+---+---+---+---+---+       +---+
+    |   |   |   | D | E | F | G | H |   <-- | I | (New element to be enqueued)
+    +---+---+---+---+---+---+---+---+       +---+
+                  ^               ^
+                  |               |
+                Front           Rear
+
+ We can easily see that the initial array slots are being wasted, since we can't add elements at the beginning of the array. To solve this problem, we can use a circular array, which is an array that wraps around at the end. The array queue below represents an array queue with size eight and four elements.
+
+   +---+---+---+---+---+---+---+---+
+   |   | A | B | C | D |   |   |   |
+   +---+---+---+---+---+---+---+---+
+         ^           ^
+         |           |
+        Front       Rear
+
+The structure of the queue is defined as follows:
+
+```go
+type ArrayQueue[T any] struct {
+    data     []T
+    front    int
+    rear     int
+    capacity int
 }
 ```
 
