@@ -202,12 +202,12 @@ The array queue is a queue implemented using an array, but not a simple array. S
 
  We can easily see that the initial array slots are being wasted, since we can't add elements at the beginning of the array. To solve this problem, we can use a circular array, which is an array that wraps around at the end. The array queue below represents an array queue with size eight and four elements.
 
-   +---+---+---+---+---+---+---+---+
-   |   | A | B | C | D |   |   |   |
-   +---+---+---+---+---+---+---+---+
-         ^           ^
-         |           |
-        Front       Rear
+    +---+---+---+---+---+---+---+---+
+    |   |   |   | A | B | C | D |   |
+    +---+---+---+---+---+---+---+---+
+                  ^           ^
+                  |           |
+                Front        Rear
 
 The structure of the queue is defined as follows:
 
