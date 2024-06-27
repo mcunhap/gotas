@@ -15,8 +15,8 @@ func TestNew(t *testing.T) {
 		t.Errorf("Expected top to be -1, got %d", s.top)
 	}
 
-	if len(s.data) != 0 {
-		t.Errorf("Expected length of data to be 0, got %d", len(s.data))
+	if len(s.data) != 3 {
+		t.Errorf("Expected length of data to be 3, got %d", len(s.data))
 	}
 }
 

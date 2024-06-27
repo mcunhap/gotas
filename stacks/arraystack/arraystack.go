@@ -12,7 +12,7 @@ var ErrStackFull = errors.New("stack is full")
 var ErrStackEmpty = errors.New("stack is empty")
 
 func New[T any](cap int) *ArrayStack[T] {
-	return &ArrayStack[T]{data: []T{}, top: -1, capacity: cap}
+	return &ArrayStack[T]{data: make([]T, cap), top: -1, capacity: cap}
 }
 
 func (s *ArrayStack[T]) Push(data T) error {
@@ -21,7 +21,7 @@ func (s *ArrayStack[T]) Push(data T) error {
 	}
 
 	s.top++
-	s.data = append(s.data, data)
+	s.data[s.top] = data
 
 	return nil
 }
