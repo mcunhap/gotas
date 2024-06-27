@@ -131,7 +131,7 @@ func (l *List[T]) deleteHead() bool {
 func (l *List[T]) deleteTail() bool {
 	current := l.head
 
-	for i := 0; i < l.size-1; i++ {
+	for i := 0; i < l.size-2; i++ {
 		current = current.next
 	}
 
