@@ -15,7 +15,6 @@ Implementing and learning data structures. All code is written in Go.
     - [x] [Linked List](#linked-list-queue)
 - Tree
     - [ ] Binary Tree
-    - [ ] Binary Search Tree
 - Graph
     - [ ] Adjacency List
     - [ ] Adjacency Matrix
